@@ -13,12 +13,12 @@ def brute_force_max_subarray(array):
 
 
 def linear_time_max_subarray(array):
-    max_so_far = 0
-    max_ending_here = 0
+    max_so_far = -10000
+    max_ending_here = -10000
     start, end = 0, 0
     for index in range(len(array)):
         max_ending_here = max_ending_here + array[index]
-        if max_ending_here < array[index]:
+        if max_ending_here < array[index] and array[index] >= max_so_far:
             max_ending_here = array[index]
             start = index
 
@@ -26,7 +26,7 @@ def linear_time_max_subarray(array):
             max_so_far = max_ending_here
             end = index
 
-    return array[start:end]
+    return max_so_far, start, end
 
 
 def max_crossing_subarray(array, l, m, h):
@@ -39,7 +39,7 @@ def max_crossing_subarray(array, l, m, h):
 
     sum_r = 0
     right_max_sum = -100000
-    for j in range(m + 1, h):
+    for j in range(m + 1, h + 1):
         sum_r = sum_r + array[j]
         if sum_r > right_max_sum:
             right_max_sum = sum_r
@@ -60,6 +60,9 @@ def max_subarray(array, l, h):
 
 
 
-array = [-2, -5, 6, -2, -3, 1, 5, -6]
-max_range = max_subarray(array, 0, len(array)-1)
+#array = [-2, -5, 6, -2, -3, 1, 5, -6]
+array = [-2, 7, 6, -4, -2, -3, -1, -5, -6]
+max_range = max_subarray(array, 0, len(array) - 1)
+max_range = linear_time_max_subarray(array)
+#max_range = brute_force_max_subarray(array)
 print(max_range)

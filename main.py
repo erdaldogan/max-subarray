@@ -12,7 +12,23 @@ def brute_force_max_subarray(array):
     return max_sum_index
 
 
+def linear_time_max_subarray(array):
+    max_so_far = 0
+    max_ending_here = 0
+    start, end = 0, 0
+    for index in range(len(array)):
+        max_ending_here = max_ending_here + array[index]
+        if max_ending_here < array[index]:
+            max_ending_here = array[index]
+            start = index
 
-array = [-2, -5, 6, -2, -3, 1, 5, -6]
-max_range = brute_force_max_subarray(array)
+        if max_so_far < max_ending_here:
+            max_so_far = max_ending_here
+            end = index
+
+    return array[start:end]
+
+
+array = [-2, -5, 6, -20, -3, 1, 5, -6]
+max_range = linear_time_max_subarray(array)
 print(max_range)

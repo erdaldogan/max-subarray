@@ -159,13 +159,15 @@ Another solution is to divide the array into half recursively and computing the 
 		max\_subarray(array, m + 1, h),\\
 		max\_crossing\_subarray(array, l, m, h)\\
 		)
-
 	\EndFunction
 	\end{algorithmic}
 \end{algorithm}
-
 \newpage
+The recurrence relation of the \textit{Divide \& Conquer algorithm} is as follows; 
+$T(n) = 2T(n/2) + n $ \\ \\
+By using \textit{Master's Method}, we conclude that this algorithm's complexity is $\mathcal{O}(n\log n)$
 \subsection{Linear Time}
+
 \begin{algorithm}
 	\caption{Linear Time}
 	\begin{algorithmic}[1]
@@ -184,7 +186,8 @@ Another solution is to divide the array into half recursively and computing the 
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
-The complexity is calculated as;\\
+\newpage
+The complexity is calculated as the summation of the costs of all the lines;
 $ C1 + C2 +C3 + C4 + n(C4 + C5 + C6 + C7 + C8 + C9) = \mathcal{O}(n) $
 Where $Cn$ denotes the cost of the line $n$.
 

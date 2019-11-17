@@ -4,6 +4,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 
+
 \author{Erdal Sidal Dogan, Alp Gokcek \\ MEF University \\ \today}
 \title{Max-Subarray Sum Problem and Solution Algorithms}
 
@@ -36,14 +37,15 @@ The \textit{start} index will be incremented by 1 everytime the \textit{end} ind
 \newpage
 \begin{algorithm}
 	\caption{Brute-Force}
-	\begin{algorithmic}[line]
-		\State $n \leftarrow len(array)  $ 
-		\State $max\_sum \leftarrow 0$ 
-		\For {$i \leftarrow 1$ to $ n $} 
-			\For{$j \leftarrow 1$ to $n$}
-			\State $sum += array[j]$
-			\If{$sum > max\_sum$}
-				\State $max\_sum \leftarrow sum$ 
+	\begin{algorithmic}[1]
+		\State $n \leftarrow len(array)  $ \Comment{1}
+		\State $max\_sum \leftarrow 0$ \Comment{1}
+		\For {$i \leftarrow 1$ to $ n $} \Comment{$n+1$}
+			\State $sum \leftarrow 0$ \Comment{$n$} 
+			\For{$j \leftarrow i$ to $n$} \Comment{$\sum_{i = 0}^{n} (n - i + 2)$}
+			\State $sum += array[j]$ \Comment{$\sum_{i = 0}^{n} (n - i + 1)$}
+			\If{$sum > max\_sum$} \Comment{$\sum_{i = 0}^{n} (n - i + 1)$}
+				\State $max\_sum \leftarrow sum$  \Comment{$\sum_{i = 0}^{n} (n - i + 1)$}
 			\EndIf
 			\EndFor
 		\EndFor
@@ -124,7 +126,7 @@ Another solution is to divide the array into half recursively and computing the 
 
 \begin{algorithm}
 	\caption{Divide \& Conquer}
-	\begin{algorithmic}[line]
+	\begin{algorithmic}[1]
 		
 	\Function {max\_crossing\_sub\_array} {$array, l, m, h$}
 	\State$left\_max\_sum \leftarrow -100000$
@@ -166,22 +168,26 @@ Another solution is to divide the array into half recursively and computing the 
 \subsection{Linear Time}
 \begin{algorithm}
 	\caption{Linear Time}
-	\begin{algorithmic}[line]
-	\State$max\_so\_far \leftarrow -100000$
-	\State$max\_ending\_here \leftarrow -100000$
-	\State$n \leftarrow length(array)$
-		\For {$i \leftarrow 1$ to $ n $} 
-			\State$max\_ending\_here \leftarrow max\_ending\_here + array[i]$
-			\If{$max\_ending\_here < array[i]$}
-					\State$max\_ending\_here \leftarrow array[i]$
+	\begin{algorithmic}[1]
+	\State$max\_so\_far \leftarrow -100000$ \Comment{$1$}
+	\State$max\_ending\_here \leftarrow -100000$ \Comment{$1$}
+	\State$n \leftarrow length(array)$ \Comment{$1$}
+		\For {$i \leftarrow 1$ to $ n $}  \Comment{$n + 1$}
+			\State$max\_ending\_here \leftarrow max\_ending\_here + array[i]$ \Comment{$n$}
+			\If{$max\_ending\_here < array[i]$}\Comment{$n$} 
+					\State$max\_ending\_here \leftarrow array[i]$\Comment{$n$}
 			\EndIf
-			\If{$max\_so\_far < max\_ending\_here$}
-				\State$max\_so\_far max\_ending\_here$
+			\If{$max\_so\_far < max\_ending\_here$} \Comment{$n$}
+				\State$max\_so\_far max\_ending\_here$ \Comment{$n$}
 			\EndIf
 
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
+The complexity is calculated as;\\
+$ C1 + C2 +C3 + C4 + n(C4 + C5 + C6 + C7 + C8 + C9) = \mathcal{O}(n) $
+Where $Cn$ denotes the cost of the line $n$.
+
 
 
 \end{document}

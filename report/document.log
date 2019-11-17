@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.29)  17 NOV 2019 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.29)  17 NOV 2019 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,20 +826,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--171
 File: n_nlgn.png Graphic file (type png)
 <use n_nlgn.png>
 Package pdftex.def Info: n_nlgn.png  used on input line 199.
-(pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
-
-Overfull \hbox (29.04932pt too wide) in paragraph at lines 199--200
- [][] 
- []
-
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
 <n_nlgn_n2.png, id=20, 1124.2pt x 843.15pt>
 File: n_nlgn_n2.png Graphic file (type png)
 <use n_nlgn_n2.png>
 Package pdftex.def Info: n_nlgn_n2.png  used on input line 202.
-(pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
 
-Overfull \hbox (29.04932pt too wide) in paragraph at lines 202--203
- [][][] 
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]\OT1/ptm/m/n/10 Fig. 2: |Brute-Force ($\OMS/cmsy/m/n/10 O\OT1/cmr/m/n/10 (\OM
+L/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$\OT1/ptm/m/n/10 )vs. Di-vide & Con-quer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+\OT1/ptm/m/n/10 sum-using-divide-and-conquer-algorithm/. [Ac-cessed: 17-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+[]\OT1/ptm/m/n/10 [2]M. Tal-luri, "Kadane's Al-go-rithm Ex-plained",
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+\OT1/ptm/m/n/10 Hack-er-noon.com, 2019. [On-line]. Avail-able:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+\OT1/ptm/m/n/10 https://hackernoon.com/kadanes-algorithm-explained-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+
+Underfull \hbox (badness 4954) in paragraph at lines 212--213
+[]\OT1/ptm/m/n/10 [3]R.Singhal, "Kadane'sAlgorithm (Dy-namic Pro-gram-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+\OT1/ptm/m/n/10 Available:https://medium.com/@rsinghal757/kadanes-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+\OT1/ptm/m/n/10 algorithm-dynamic-programming-how-and-why-does-it-
  []
 
 [2 <./n_nlgn.png (PNG copy)> <./n_nlgn_n2.png (PNG copy)>] (./document.aux) ) 
@@ -863,7 +904,7 @@ xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/texmf-dist/f
 onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on document.pdf (2 pages, 185263 bytes).
+Output written on document.pdf (2 pages, 186199 bytes).
 PDF statistics:
  57 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream

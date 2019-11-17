@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def brute_force_max_subarray(array):
@@ -61,8 +62,8 @@ def divide_and_conquer_max_subarray(array, l, h):
         return array[l], l
 
     return max(
-        max_subarray(array, l, m),
-        max_subarray(array, m + 1, h),
+        divide_and_conquer_max_subarray(array, l, m),
+        divide_and_conquer_max_subarray(array, m + 1, h),
         max_crossing_subarray(array, l, m, h)
     )
 
@@ -76,7 +77,7 @@ def generate_random_array(number):
 #array = [-2, -5, 6, -2, -3, 1, 5, -6]
 array = [-2, 7, 6, -4, -2, -3, -1, -5, -6]
 random_array = generate_random_array(100)
-max_range = max_subarray(random_array, 0, len(random_array) - 1)
+max_range = divide_and_conquer_max_subarray(random_array, 0, len(random_array) - 1)
 max_range1 = linear_time_max_subarray(random_array)
 max_range2 = brute_force_max_subarray(random_array)
 
@@ -124,6 +125,7 @@ def maximumSubarray(array):
     end = time.time()
     print("Max Sum:\t\t" + str(max_output[0]))
     print("Indices:\t\t" + str(max_output[1]) + "-" + str(max_output[2]))
+    print("Max Subarray: \t" + str(array[max_output[1]:max_output[2]+1]))
     print("Time Elapsed:\t" + str(end - start) + "s")
 
     print("***********************")
@@ -133,6 +135,7 @@ def maximumSubarray(array):
     end = time.time()
     print("Max Sum:\t\t" + str(linear_output[0]))
     print("Indices:\t\t" + str(linear_output[1]) + "-" + str(linear_output[2]))
+    print("Max Subarray: \t" + str(array[linear_output[1]:linear_output[2]+1]))
     print("Time Elapsed:\t" + str(end - start) + "s")
 
     print("***********************")
@@ -142,6 +145,7 @@ def maximumSubarray(array):
     end = time.time()
     print("Max Sum:\t\t" + str(brute_output[0]))
     print("Indices:\t\t" + str(brute_output[1]) + "-" + str(brute_output[2]))
+    print("Max Subarray: \t" + str(array[brute_output[1]:brute_output[2]+1]))
     print("Time Elapsed\t: " + str(end - start) + "s")
     print("***********************")
 

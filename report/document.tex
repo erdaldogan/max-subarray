@@ -7,7 +7,7 @@
 \usepackage{caption}
 
 
-\author{Erdal Sidal Dogan, Alp Gokcek \\ MEF University \\ \today}
+\author{Erdal Sidal Dogan, Alp Gokcek \\doganer@mef.edu.tr, gokcekal@mef.edu.tr \\ MEF University \\ \today}
 \title{Max-Subarray Sum Problem and Solution Algorithms}
 
 
@@ -169,6 +169,7 @@ The recurrence relation of the \textit{Divide \& Conquer algorithm} is as follow
 $T(n) = 2T(n/2) + n $ \\ \\
 By using \textit{Master's Method}, we conclude that this algorithm's complexity is $\mathcal{O}(n\log n)$
 \subsection{Linear Time}
+Another solution is by just traversing the array once and while traversing the array, comparing the current element with the sum of the current element with previous elements’ sum and since the problem is finding the maximum contiguous subarray, we pick the larger value when comparing. This algorithm is also known as Kadane’s Algorithm.
 \begin{algorithm}
 	\caption{Linear Time}
 	\begin{algorithmic}[1]
@@ -189,7 +190,7 @@ By using \textit{Master's Method}, we conclude that this algorithm's complexity 
 \end{algorithm}
 \newpage
 The complexity is calculated as the summation of the costs of all the lines;
-$ C1 + C2 +C3 + C4 + n(C4 + C5 + C6 + C7 + C8 + C9) = \mathcal{O}(n) $
+$ C_1 + C_2 +C_3 + C_4 + n(C_4 + C_5 + C_6 + C_7 + C_8 + C_9) = \mathcal{O}(n) $
 Where $Cn$ denotes the cost of the line $n$.
 \section{Comparisons}
 \begin{center}

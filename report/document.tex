@@ -92,7 +92,8 @@ Another solution is to divide the array into half recursively and computing the 
 \begin{algorithm}
 	\caption{Divide \& Conquer}
 	\begin{algorithmic}[line]
-	\State \textbf{function} max\_crossing\_sub\_array$(array, l, m, h)$		
+		
+	\Function {max\_crossing\_sub\_array} {$array, l, m, h$}
 	\State$left\_max\_sum \leftarrow -100000$
 	\State$sum\_l \leftarrow 0$
 	\For{$ i \leftarrow m$ \textbf{downto} $l - 1$} 
@@ -109,8 +110,22 @@ Another solution is to divide the array into half recursively and computing the 
 		\If{$sum\_r > right\_max\_sum$}
 			\State $right\_max\_sum \leftarrow sum\_r$
 		\EndIf
-	\EndFor
+	\EndFor\\
 	\Return$left\_max\_sum + right\_max\_sum )$
+	\EndFunction
+	\\
+	\Function{max\_sub\_array}{array, l, h}
+		\State $m \leftarrow ((h + l) / 2)$
+		\If{$l = h$} 
+			\State \textbf{return} $array[l]$
+		\EndIf
+		
+		\Return max(max\_subarray(array, l, m),\\
+		max\_subarray(array, m + 1, h),\\
+		max\_crossing\_subarray(array, l, m, h)\\
+		)
+
+	\EndFunction
 	\end{algorithmic}
 \end{algorithm}
 

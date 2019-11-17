@@ -2,7 +2,7 @@
 \usepackage{tikz}
 \tikzstyle{box}=[rectangle,draw=black, ultra thick, minimum size=1cm]
 \usepackage{algorithm}
-\usepackage{algorithmicx}
+\usepackage{algpseudocode}
 
 \author{Erdal Sidal Dogan, Alp Gokcek \\ MEF University \\ \today}
 \title{Max-Subarray Sum Problem and Solution Algorithms}
@@ -36,9 +36,9 @@ The \textit{start} index will be incremented by 1 everytime the \textit{end} ind
 \newpage
 \begin{algorithm}
 	\caption{Brute-Force}
-	\begin{algorithmic}[
+	\begin{algorithmic}[line]
 		\State $n \leftarrow len(array)  $ 
-		\State $max_sum \leftarrow 0$ 
+		\State $max\_sum \leftarrow 0$ 
 		\For {$i \leftarrow 1$ to $ n $} 
 			\For{$j \leftarrow 1$ to $n$}
 			\State $sum += array[j]$
@@ -51,6 +51,7 @@ The \textit{start} index will be incremented by 1 everytime the \textit{end} ind
 \end{algorithm}
 \subsection{Divide \& Conquer Approach}
 Another solution is to divide the array into half recursively and computing the max subarray sum for each half and the sub array for crossing both halfs. After calculating the summation for these 3 cases, we choose the largest one, thus we determine the maximum sub array.\\ 
+
 \begin{tikzpicture}[transform canvas={scale=.5}, trim left=-2.5cm]
 	[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	box/.style={rectangle,draw=black, ultra thick, minimum size=0.5cm},
@@ -90,7 +91,7 @@ Another solution is to divide the array into half recursively and computing the 
 
 \begin{algorithm}
 	\caption{Divide \& Conquer}
-	\begin{algorithmic} 
+	\begin{algorithmic}[line]
 	\State \textbf{function} max\_crossing\_sub\_array$(array, l, m, h)$		
 	\State$left\_max\_sum \leftarrow -100000$
 	\State$sum\_l \leftarrow 0$
@@ -103,7 +104,7 @@ Another solution is to divide the array into half recursively and computing the 
 	
 	\State $sum\_r \leftarrow 0$
 	\State $right\_max\_sum \leftarrow -100000$
-	\For{$ j \leftarrow m + 1$ \TO $h + 1$} 
+	\For{$ j \leftarrow m + 1$ \textbf{to} $h + 1$} 
 		\State$sum\_r \leftarrow sum\_r + array[j]$
 		\If{$sum\_r > right\_max\_sum$}
 			\State $right\_max\_sum \leftarrow sum\_r$

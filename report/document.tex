@@ -164,12 +164,16 @@ Another solution is to divide the array into half recursively and computing the 
 	\EndFunction
 	\end{algorithmic}
 \end{algorithm}
-\newpage
+\vspace{2cm}
 The recurrence relation of the \textit{Divide \& Conquer algorithm} is as follows; 
 $T(n) = 2T(n/2) + n $ \\ \\
 By using \textit{Master's Method}, we conclude that this algorithm's complexity is $\mathcal{O}(n\log n)$
+\newpage
 \subsection{Linear Time}
-Another solution is by just traversing the array once and while traversing the array, comparing the current element with the sum of the current element with previous elements’ sum and since the problem is finding the maximum contiguous subarray, we pick the larger value when comparing. This algorithm is also known as Kadane’s Algorithm.
+Another solution is by just traversing the array once and comparing the current element with maximum sub array ending there. Since the problem is finding the maximum contiguous subarray, we pick the larger one, a.k.a Kadane’s Algorithm.
+The complexity is calculated as the summation of the costs of all the lines;
+$ C_1 + C_2 +C_3 + C_4 + n(C_4 + C_5 + C_6 + C_7 + C_8 + C_9) = \mathcal{O}(n) $
+Where $C_n$ denotes the cost of the line $n$.
 \begin{algorithm}
 	\caption{Linear Time}
 	\begin{algorithmic}[1]
@@ -188,10 +192,8 @@ Another solution is by just traversing the array once and while traversing the a
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
-\newpage
-The complexity is calculated as the summation of the costs of all the lines;
-$ C_1 + C_2 +C_3 + C_4 + n(C_4 + C_5 + C_6 + C_7 + C_8 + C_9) = \mathcal{O}(n) $
-Where $Cn$ denotes the cost of the line $n$.
+
+
 \section{Comparisons}
 \begin{center}
 	\includegraphics[scale=0.25]{n_nlgn.png}\label{n}

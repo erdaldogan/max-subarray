@@ -37,26 +37,82 @@ The \textit{start} index will be incremented by 1 everytime the \textit{end} ind
 \begin{algorithm}
 	\caption{Brute-Force}
 	\begin{algorithmic} 
-		\STATE $y \leftarrow 1$ 
-		\IF{$n < 0$}
-		\STATE $X \leftarrow 1 / x$
-		\STATE $N \leftarrow -n$
-		\ELSE
-		\STATE $X \leftarrow x$
-		\STATE $N \leftarrow n$
-		\ENDIF
-		\WHILE{$N \neq 0$}
-		\IF{$N$ is even}
-		\STATE $X \leftarrow X \times X$
-		\STATE $N \leftarrow N / 2$
-		\ELSE[$N$ is odd]
-		\STATE $y \leftarrow y \times X$
-		\STATE $N \leftarrow N - 1$
-		\ENDIF
-		\ENDWHILE
+		\STATE $n \leftarrow len(array)  $ 
+		\STATE $max_sum \leftarrow 0$ 
+		\FOR {$ i \leftarrow 1$ to $ n $} 
+			\FOR{$j \leftarrow 1$ to $n$}
+			\STATE $sum += array[j]$
+			\IF{$sum > max\_sum$}
+				\STATE $max\_sum \leftarrow sum$ 
+			\ENDIF
+			\ENDFOR
+		\ENDFOR
 	\end{algorithmic}
 \end{algorithm}
+\subsection{Divide \& Conquer Approach}
+Another solution is to divide the array into half recursively and computing the max subarray sum for each half and the sub array for crossing both halfs. After calculating the summation for these 3 cases, we choose the largest one, thus we determine the maximum sub array.\\ 
 
+\begin{tikzpicture}[transform canvas={scale=.5}, trim left=-2.5cm]
+[%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+box/.style={rectangle,draw=black, ultra thick, minimum size=0.5cm},
+]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\foreach \x/\y in {0/9, 1/5,2/13,3/19,4/12,5/8,6/7,7/4}
+\node[box] at (\x,0){\y};
+
+%\draw[->,very thick] (0,1.2) --  node[above,yshift=2mm]{start} (0,.7);
+%\draw[->,very thick] (1,1.2) --  node[above,yshift=2mm]{end} (1,.7);
+\draw[->,very thick] (3.45,-.7) -- (1,-2);
+\draw[->,very thick] (3.55,-.7) -- (6,-2);
+
+\foreach \x/\y in {-1/9, 0/5,1/13,2/19}
+\node[box] at (\x,-3){\y};
+
+\foreach \x/\y in {5/12, 6/8,7/7,8/4}
+\node[box] at (\x,-3){\y};
+
+\draw[->,very thick] (0.45,-3.6) -- (-0.7,-4);
+\draw[->,very thick] (0.55,-3.6) -- (1.7,-4);
+
+\draw[->,very thick] (6.45,-3.6) -- (5.35,-4);
+\draw[->,very thick] (6.55,-3.6) -- (7.65,-4);
+
+\foreach \x/\y in {8/7,9/4}
+\node[box] at (\x,-5){\y};
+\foreach \x/\y in {4.5/12, 5.5/8}
+\node[box] at (\x,-5){\y};
+
+\foreach \x/\y in {-2/9,-1/5}
+\node[box] at (\x,-5){\y};
+\foreach \x/\y in {1.5/13,2.5/19}
+\node[box] at (\x,-5){\y};
+\end{tikzpicture} 
+\\ \\ \\ \\ \\ \\ \\  \\ 
+\begin{algorithm}
+	\caption{Divide \& Conquer}
+	\begin{algorithmic} 
+	\STATE \textbf{function} max\_crossing\_sub\_array$(array, l, m, h)$		
+	\STATE$left\_max\_sum \leftarrow -100000$
+	\STATE$sum\_l \leftarrow 0$
+	\FOR{$ i \leftarrow m$ \textbf{downto} $l - 1$} 
+		\STATE$sum\_l \leftarrow sum\_l + array[i]$
+		\IF{$sum\_l > left\_max\_sum$}
+			\STATE $left\_max\_sum \leftarrow sum\_l$
+		\ENDIF
+	\ENDFOR
+	
+	\STATE $sum\_r \leftarrow 0$
+	\STATE $right\_max\_sum \leftarrow -100000$
+	\FOR{$ j \leftarrow m + 1$ \TO $h + 1$} 
+		\STATE$sum\_r \leftarrow sum\_r + array[j]$
+		\IF{$sum\_r > right\_max\_sum$}
+			\STATE $right\_max\_sum \leftarrow sum\_r$
+		\ENDIF
+	\ENDFOR
+	\RETURN$left\_max\_sum + right\_max\_sum )$
+	
+	\end{algorithmic}
+\end{algorithm}
 
 
 \end{document}

@@ -86,6 +86,39 @@ Another solution is to divide the array into half recursively and computing the 
 	\node[box] at (\x,-5){\y};
 	\foreach \x/\y in {1.5/13,2.5/19}
 	\node[box] at (\x,-5){\y};
+	
+	\draw[->,very thick] (8.45,-5.7) -- (7.95,-6.5);
+	\draw[->,very thick] (8.55,-5.7) -- (9.05,-6.5);
+	
+	\draw[->,very thick] (4.95,-5.7) -- (4.45,-6.5);
+	\draw[->,very thick] (5.05,-5.7) -- (5.55,-6.5);
+	
+	\draw[->,very thick] (2,-5.7) -- (2.5,-6.5);
+	\draw[->,very thick] (2,-5.7) -- (1.5,-6.5);
+	
+	\draw[->,very thick] (-1.5,-5.7) -- (-1,-6.5);
+	\draw[->,very thick] (-1.5,-5.7) -- (-2,-6.5);
+	
+	\foreach \x/\y in {-2.4/9}
+	\node[box] at (\x,-7.2){\y};
+	\foreach \x/\y in {-0.9/5}
+	\node[box] at (\x,-7.2){\y};
+	
+	\foreach \x/\y in {1.2/13}
+	\node[box] at (\x,-7.2){\y};
+	\foreach \x/\y in {2.7/19}
+	\node[box] at (\x,-7.2){\y};	
+	
+	\foreach \x/\y in {4.2/12}
+	\node[box] at (\x,-7.2){\y};
+	\foreach \x/\y in {5.7/8}
+	\node[box] at (\x,-7.2){\y};	
+	
+	\foreach \x/\y in {7.8/13}
+	\node[box] at (\x,-7.2){\y};
+	\foreach \x/\y in {9.3/19}
+	\node[box] at (\x,-7.2){\y};	
+	
 \end{tikzpicture} 
 \\ \\ \\ \\ \\ \\ \\  \\ 
 
@@ -126,6 +159,27 @@ Another solution is to divide the array into half recursively and computing the 
 		)
 
 	\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+\newpage
+\subsection{Linear Time}
+\begin{algorithm}
+	\caption{Linear Time}
+	\begin{algorithmic}[line]
+	\State$max\_so\_far \leftarrow -100000$
+	\State$max\_ending\_here \leftarrow -100000$
+	\State$n \leftarrow length(array)$
+		\For {$i \leftarrow 1$ to $ n $} 
+			\State$max\_ending\_here \leftarrow max\_ending\_here + array[i]$
+			\If{$max\_ending\_here < array[i]$}
+					\State$max\_ending\_here \leftarrow array[i]$
+			\EndIf
+			\If{$max\_so\_far < max\_ending\_here$}
+				\State$max\_so\_far max\_ending\_here$
+			\EndIf
+
+		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 

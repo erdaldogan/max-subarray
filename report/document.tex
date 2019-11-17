@@ -3,6 +3,8 @@
 \tikzstyle{box}=[rectangle,draw=black, ultra thick, minimum size=1cm]
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{caption}
 
 
 \author{Erdal Sidal Dogan, Alp Gokcek \\ MEF University \\ \today}
@@ -116,9 +118,9 @@ Another solution is to divide the array into half recursively and computing the 
 	\foreach \x/\y in {5.7/8}
 	\node[box] at (\x,-7.2){\y};	
 	
-	\foreach \x/\y in {7.8/13}
+	\foreach \x/\y in {7.8/7}
 	\node[box] at (\x,-7.2){\y};
-	\foreach \x/\y in {9.3/19}
+	\foreach \x/\y in {9.3/4}
 	\node[box] at (\x,-7.2){\y};	
 	
 \end{tikzpicture} 
@@ -167,7 +169,6 @@ The recurrence relation of the \textit{Divide \& Conquer algorithm} is as follow
 $T(n) = 2T(n/2) + n $ \\ \\
 By using \textit{Master's Method}, we conclude that this algorithm's complexity is $\mathcal{O}(n\log n)$
 \subsection{Linear Time}
-
 \begin{algorithm}
 	\caption{Linear Time}
 	\begin{algorithmic}[1]
@@ -190,6 +191,15 @@ By using \textit{Master's Method}, we conclude that this algorithm's complexity 
 The complexity is calculated as the summation of the costs of all the lines;
 $ C1 + C2 +C3 + C4 + n(C4 + C5 + C6 + C7 + C8 + C9) = \mathcal{O}(n) $
 Where $Cn$ denotes the cost of the line $n$.
+\section{Comparisons}
+\begin{center}
+	\includegraphics[scale=0.25]{n_nlgn.png}\label{n}
+	\captionof{figure}{Divide \& Conquer Algorithm ($\mathcal{O}(n)$) vs Linear Time Algorithm ($ \mathcal{O}(n\log n)$)}
+	
+	\includegraphics[scale=.25]{n_nlgn_n2.png}\label{n2}
+	\captionof{figure}{Brute-Force ($mathcal{O}(n^2)$)vs .Divide \& Conquer ($\mathcal{O}(n)$) vs Linear Time ($ \mathcal{O}(n\log n)$)}
+\end{center}
+As the Fig. 1 and Fig. 2 indicates, Brute-Force algorithm is way slower comparing to D\&C and Linear Time algorithms, espicially in larger data sets. 
 
 
 

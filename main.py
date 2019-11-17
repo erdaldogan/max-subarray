@@ -68,7 +68,7 @@ linear_time_arr=[]
 brute_time_arr=[]
 divide_and_conquer_max_subarray_time_arr=[]
 
-n_variations = [10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000]
+n_variations = [10000000, 100000000, 1000000000, 10000000000]
 for n in n_variations:
     array = []
     for _ in range(n):
@@ -85,12 +85,6 @@ for n in n_variations:
     linear_output = linear_time_max_subarray(array)
     end = time.time()
     linear_time_arr.append(end - start)
-
-    start=time.time()
-    print("brute_force_max_subarray", n)
-    brute_output = brute_force_max_subarray(array)
-    end = time.time()
-    brute_time_arr.append(end - start)
 
 print("divide_and_conquer_max_subarray_time_arr", divide_and_conquer_max_subarray_time_arr)
 print("linear_time_arr", linear_time_arr)
